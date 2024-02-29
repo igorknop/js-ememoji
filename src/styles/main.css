@@ -4,6 +4,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background: hsl(331, 97%, 55%);
+  user-select: none;
 }
 
 .container {
@@ -68,4 +69,24 @@ h2 {
   align-items: center;
   background-color: hsl(0, 0%, 100%);
   font-size: 3em;
+  transform: rotateY(180deg);
+  transition: 0.4s;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: hsl(0, 30%, 30%);
+  transition: 0.4s;
+  transform: rotateY(0deg);
+  backface-visibility:  hidden;
+}
+
+.item.opened {
+  transform: rotateY(0deg);
+}
+
+.opened::after, .matched::after {
+  transform: rotateY(180deg);
 }
