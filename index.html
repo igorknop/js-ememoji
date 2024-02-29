@@ -8,10 +8,17 @@
   <link rel="stylesheet" href="./src/styles/main.css" />
 </head>
 <body>
-  <div class="container">
+  <div id="container">
     <h2>Ememoji</h2>
-    <div class="game"></div>
-    <button class="reset" onclick="window.location.reload()">Reset Game</button>
+    <div id="game"></div>
+    <button id="reset">Reset Game</button>
+    <dialog>
+      <form method="dialog">
+        <h2>You Win!</h2>
+        <button>Let's play again!</button>
+      </form>
+    </dialog>
+
   </div>
   <script src="./src/scripts/engine.js" defer></script>
 </body>
