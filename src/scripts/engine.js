@@ -25,7 +25,22 @@ function handleClick(e) {
     this.classList.add('opened');
     openedCards.push(this);
   }
-  if (openedCards === 2) {
-    setTimeout(() => {}, 500);
+  if (openedCards.length === 2) {
+    setTimeout(checkIfIsSame, 500);
+  }
+}
+
+function checkIfIsSame(){
+  if(openedCards[0].dataset.emoji === openedCards[1].dataset.emoji) {
+    openedCards[0].classList.add('matched');
+    openedCards[1].classList.add('matched');
+    openedCards = [];
+  } else {
+    openedCards[0].classList.remove('opened');
+    openedCards[1].classList.remove('opened');
+    openedCards = [];
+  }
+  if(document.querySelectorAll('.matched').length === EMOJIS.length) {
+    alert('You win!');
   }
 }
